@@ -1,16 +1,18 @@
 <?php
 namespace Mediashare\Scraper\Entity;
 
-use Mediashare\Scraper\Entity\Header;
-use Mediashare\Scraper\Entity\Body;
 use Mediashare\Scraper\Entity\Url;
+use Mediashare\Scraper\Entity\Body;
+use Mediashare\Scraper\Entity\Header;
+use Mediashare\Scraper\Entity\Webpage;
+use Symfony\Component\DomCrawler\Crawler as DomCrawler;
 
 class Webpage
 {
     public $url;
     public $header;
     public $body;
-
+    public $links = [];
     public function __construct(string $url) {
         $this->setUrl($url);
         $this->setHeader(new Header());
@@ -52,6 +54,20 @@ class Webpage
     {
         $this->body = $body;
 
+        return $this;
+    }
+
+    public function addLinks(Webpage $webpage, DomCrawler $dom): self {
+        $urls = $dom->filter('a');
+        foreach ($urls as $url) {
+            $url = $url->getAttribute('href');
+            if (!empty($url)):
+                $link = new Url($url);
+                $external = $link->isInternal($webpage);
+                $this->links[] = $link;
+            endif;
+        }
+        dump($this->links);die;
         return $this;
     }
 }
