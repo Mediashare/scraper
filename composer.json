@@ -1,0 +1,26 @@
+{
+    "name": "mediashare/scraper",
+    "description": "Scrapes the information from the targeted page and provides a DomCrawler",
+    "type": "library",
+    "require": {
+        "symfony/dom-crawler": "^5.0",
+        "symfony/css-selector": "^5.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "tracy/tracy": "^2.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mediashare",
+            "email": "mediashare.supp@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Mediashare\\Scraper\\": "src/"
+        }
+    }
+}
