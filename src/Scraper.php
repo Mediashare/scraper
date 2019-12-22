@@ -31,7 +31,9 @@ Class Scraper
         $guzzle = new Guzzle($webpage);
         $guzzle = $guzzle->run();
         $webpage = $guzzle->webpage;
-        $this->error = $guzzle->error; // Record Guzzle Error
+        if ($guzzle->error) {
+            $this->error = $guzzle->error; // Record Guzzle Error
+        }
         return $webpage;
     }
 
