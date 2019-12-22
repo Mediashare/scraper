@@ -56,11 +56,10 @@ class Guzzle
 			foreach ($guzzle->getHeaders() as $name => $values) {
 				$headers[$name] = implode(', ', $values);
 			}
-			$this->url->setExcluded(true);
-			$this->errors[] = [
+			$this->error = [
 				'type' => 'guzzle',
 				'message' => 'Response status: '.$httpCode,
-				'url' => $this->url->getUrl(),
+				'url' => $url->getUrl(),
 			];
 			return false;
 		}
