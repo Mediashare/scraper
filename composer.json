@@ -1,6 +1,7 @@
 {
     "name": "mediashare/scraper",
     "description": "Scrapes the information from the targeted page and provides a DomCrawler",
+    "keywords": ["scrape", "scraper", "scraping", "crawler", "dom", "domcrawler"],
     "type": "library",
     "require": {
         "symfony/dom-crawler": "^5.0",
