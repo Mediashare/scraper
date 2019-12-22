@@ -67,7 +67,6 @@ class Webpage
                 $this->links[] = $link;
             endif;
         }
-        dump($this->links);die;
         return $this;
     }
 }

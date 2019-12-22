@@ -16,13 +16,13 @@ Class Scraper
 
     public function run() {
         // Guzzle get Webpage content
-        $webpage = $this->guzzle($this->webpage);
+        $this->webpage = $this->guzzle($this->webpage);
         
         // Generate DomCrawler (Symfony Library)
-        $dom = $this->getDomCrawler($webpage);
+        $this->dom = $this->getDomCrawler($this->webpage);
         
         // Add internal & external links from webpage with DomCrawler
-        $webpage->addLinks($webpage, $dom);
+        $this->webpage->addLinks($this->webpage, $this->dom);
         
         return $this;
     }
