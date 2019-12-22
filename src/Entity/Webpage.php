@@ -28,6 +28,7 @@ class Webpage
     {
         $url = new Url($url);
         $url->checkUrl(); // Check if url is valid.
+        $url->isInternal(true);
         $this->url = $url;
 
         return $this;
