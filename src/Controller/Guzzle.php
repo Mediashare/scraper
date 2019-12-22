@@ -59,9 +59,8 @@ class Guzzle
 			$this->error = [
 				'type' => 'guzzle',
 				'message' => 'Response status: '.$httpCode,
-				'url' => $url->getUrl(),
+				'url' => (string) $url,
 			];
-			return false;
 		}
 		
 		$this->webpage->getHeader()->setHttpCode($httpCode);
