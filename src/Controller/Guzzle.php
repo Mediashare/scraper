@@ -45,8 +45,8 @@ class Guzzle
 				'message' => $exception->getMessage(),
 				'url' => (string) $url,
             ];
-            throw new Exception("[Guzzle] " . $exception->getMessage());
-			return false;
+            // throw new Exception("[Guzzle] " . $exception->getMessage());
+			return $this;
 		}
 
 		$httpCode = $guzzle->getStatusCode();
