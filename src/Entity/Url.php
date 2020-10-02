@@ -67,7 +67,7 @@ Class Url
                 $isUrl = filter_var($url, FILTER_VALIDATE_URL);
             }
             if (!$isUrl && strpos($url, $website) === false) {
-                $url = rtrim($url,"/")."/".$url;
+                $url = rtrim($website,"/")."/".$url;
                 $isUrl = filter_var($url, FILTER_VALIDATE_URL);
             }
             if (!$isUrl) {
