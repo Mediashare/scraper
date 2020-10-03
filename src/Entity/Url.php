@@ -62,6 +62,10 @@ Class Url
             $url = rtrim($url  ,"/")."/".$url;
         } else {
             $isUrl = filter_var($url, FILTER_VALIDATE_URL);
+            if (!$isUrl && ($url[0] === "/" && $url[1] === "/")) {
+                $url = $webpage->getUrl()->getScheme().':'.$url;
+                $isUrl = filter_var($url, FILTER_VALIDATE_URL);
+            }
             if (!$isUrl && ($url[0] === "/" && $url[1] !== "/")) {
                 $url = rtrim($website,"/").$url;
                 $isUrl = filter_var($url, FILTER_VALIDATE_URL);
