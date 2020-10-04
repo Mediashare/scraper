@@ -2,7 +2,7 @@
 namespace Mediashare\Scraper;
 
 use Mediashare\Scraper\Entity\Webpage;
-use Mediashare\Scraper\Controller\Guzzle;
+use Mediashare\Scraper\Controller\Curl;
 use Symfony\Component\DomCrawler\Crawler as DomCrawler;
 
 Class Scraper
@@ -15,8 +15,8 @@ Class Scraper
     }
 
     public function run() {
-        // Guzzle get Webpage content
-        $this->webpage = $this->guzzle($this->webpage);
+        // Curl get Webpage content
+        $this->webpage = $this->curl($this->webpage);
         
         // Generate DomCrawler (Symfony Library)
         $this->dom = $this->getDomCrawler($this->webpage);
@@ -27,12 +27,12 @@ Class Scraper
         return $this;
     }
 
-    public function guzzle(Webpage $webpage) {
-        $guzzle = new Guzzle($webpage);
-        $guzzle = $guzzle->run();
-        $webpage = $guzzle->webpage;
-        if ($guzzle->error) {
-            $this->error = $guzzle->error; // Record Guzzle Error
+    public function curl(Webpage $webpage) {
+        $curl = new Curl($webpage);
+        $curl = $curl->run();
+        $webpage = $curl->webpage;
+        if ($curl->error) {
+            $this->error = $curl->error; // Record Curl Error
         }
         return $webpage;
     }
