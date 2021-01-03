@@ -1,4 +1,6 @@
 # Scraper
+**[DEPRECATED] Go to [Gitlab Project](https://gitlab.marquand.pro/MarquandT/scraper)**
+
 :dizzy: Scrapes the information from the targeted page and provides a DomCrawler.
 
 ### DomCrawler
