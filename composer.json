@@ -6,7 +6,7 @@
     "require": {
         "symfony/dom-crawler": "^5.0",
         "symfony/css-selector": "^5.0",
-        "mediashare/kernel": "^0.4.8"
+        "mediashare/kernel": "*"
     },
     "require-dev": {
         "tracy/tracy": "^2.7"
